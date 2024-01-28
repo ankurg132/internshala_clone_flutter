@@ -17,15 +17,18 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider<InternshipProvider>(
         create: (_) => InternshipProvider(),
         child: MaterialApp(
-          title: 'Flutter Demo',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
-            useMaterial3: true,
-          ).copyWith(
-            textTheme: GoogleFonts.interTextTheme(),
-          ),
-          home: const MyHomePage(title: 'Flutter Demo Home Page'),
-        ));
+            title: 'Internshala',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
+              useMaterial3: true,
+            ).copyWith(
+              textTheme: GoogleFonts.interTextTheme(),
+            ),
+            home: const MyHomePage(
+                title:
+                    'Internshala') //Screen to navigate to once the splashScreen is done.
+
+            ));
   }
 }
