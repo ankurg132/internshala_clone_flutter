@@ -1,16 +1,7 @@
-# internshala_clone
+# Internshala Clone
 
-A new Flutter project.
+This is an Internshala Clone developed to clone the search page of the application in Flutter.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots
+![WhatsApp Image 2024-01-28 at 11 41 10 PM](https://github.com/ankurg132/internshala_clone_flutter/assets/31045221/9f45b916-4cb4-48e4-969b-078f73a00053)
+![WhatsApp Image 2024-01-28 at 11 41 07 PM](https://github.com/ankurg132/internshala_clone_flutter/assets/31045221/fbbf3994-25be-4dc2-bd32-af275364ca13)
