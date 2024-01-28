@@ -153,8 +153,7 @@ class Internship {
     title = json['title'];
     employmentType = json['employment_type'];
     applicationStatusMessage = json['application_status_message'] != null
-        ? new ApplicationStatusMessage.fromJson(
-            json['application_status_message'])
+        ? ApplicationStatusMessage.fromJson(json['application_status_message'])
         : null;
     jobTitle = json['job_title'];
     workFromHome = json['work_from_home'];
@@ -185,7 +184,7 @@ class Internship {
     startDate = json['start_date'];
     duration = json['duration'];
     stipend =
-        json['stipend'] != null ? new Stipend.fromJson(json['stipend']) : null;
+        json['stipend'] != null ? Stipend.fromJson(json['stipend']) : null;
     salary = json['salary'];
     jobExperience = json['job_experience'];
     experience = json['experience'];
@@ -199,7 +198,7 @@ class Internship {
     if (json['locations'] != null) {
       locations = <Locations>[];
       json['locations'].forEach((v) {
-        locations!.add(new Locations.fromJson(v));
+        locations!.add(Locations.fromJson(v));
       });
     }
     startDateComparisonFormat = json['start_date_comparison_format'];
@@ -230,7 +229,7 @@ class Internship {
     if (json['labels'] != null) {
       labels = <Labels>[];
       json['labels'].forEach((v) {
-        labels!.add(new Labels.fromJson(v));
+        labels!.add(Labels.fromJson(v));
       });
     }
     labelsApp = json['labels_app'];
@@ -255,96 +254,95 @@ class Internship {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['employment_type'] = this.employmentType;
-    if (this.applicationStatusMessage != null) {
-      data['application_status_message'] =
-          this.applicationStatusMessage!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['title'] = title;
+    data['employment_type'] = employmentType;
+    if (applicationStatusMessage != null) {
+      data['application_status_message'] = applicationStatusMessage!.toJson();
     }
-    data['job_title'] = this.jobTitle;
-    data['work_from_home'] = this.workFromHome;
-    data['segment'] = this.segment;
-    data['segment_label_value'] = this.segmentLabelValue;
-    data['internship_type_label_value'] = this.internshipTypeLabelValue;
-    if (this.jobSegments != null) {
-      data['job_segments'] = this.jobSegments?.toList();
+    data['job_title'] = jobTitle;
+    data['work_from_home'] = workFromHome;
+    data['segment'] = segment;
+    data['segment_label_value'] = segmentLabelValue;
+    data['internship_type_label_value'] = internshipTypeLabelValue;
+    if (jobSegments != null) {
+      data['job_segments'] = jobSegments?.toList();
     }
-    data['company_name'] = this.companyName;
-    data['company_url'] = this.companyUrl;
-    data['is_premium'] = this.isPremium;
-    data['is_premium_internship'] = this.isPremiumInternship;
-    data['employer_name'] = this.employerName;
-    data['company_logo'] = this.companyLogo;
-    data['type'] = this.type;
-    data['url'] = this.url;
-    data['is_internchallenge'] = this.isInternchallenge;
-    data['is_external'] = this.isExternal;
-    data['is_active'] = this.isActive;
-    data['expires_at'] = this.expiresAt;
-    data['closed_at'] = this.closedAt;
-    data['profile_name'] = this.profileName;
-    data['part_time'] = this.partTime;
-    data['start_date'] = this.startDate;
-    data['duration'] = this.duration;
-    if (this.stipend != null) {
-      data['stipend'] = this.stipend!.toJson();
+    data['company_name'] = companyName;
+    data['company_url'] = companyUrl;
+    data['is_premium'] = isPremium;
+    data['is_premium_internship'] = isPremiumInternship;
+    data['employer_name'] = employerName;
+    data['company_logo'] = companyLogo;
+    data['type'] = type;
+    data['url'] = url;
+    data['is_internchallenge'] = isInternchallenge;
+    data['is_external'] = isExternal;
+    data['is_active'] = isActive;
+    data['expires_at'] = expiresAt;
+    data['closed_at'] = closedAt;
+    data['profile_name'] = profileName;
+    data['part_time'] = partTime;
+    data['start_date'] = startDate;
+    data['duration'] = duration;
+    if (stipend != null) {
+      data['stipend'] = stipend!.toJson();
     }
-    data['salary'] = this.salary;
-    data['job_experience'] = this.jobExperience;
-    data['experience'] = this.experience;
-    data['posted_on'] = this.postedOn;
-    data['postedOnDateTime'] = this.postedOnDateTime;
-    data['application_deadline'] = this.applicationDeadline;
-    data['expiring_in'] = this.expiringIn;
-    data['posted_by_label'] = this.postedByLabel;
-    data['posted_by_label_type'] = this.postedByLabelType;
-    data['location_names'] = this.locationNames;
-    if (this.locations != null) {
-      data['locations'] = this.locations!.map((v) => v.toJson()).toList();
+    data['salary'] = salary;
+    data['job_experience'] = jobExperience;
+    data['experience'] = experience;
+    data['posted_on'] = postedOn;
+    data['postedOnDateTime'] = postedOnDateTime;
+    data['application_deadline'] = applicationDeadline;
+    data['expiring_in'] = expiringIn;
+    data['posted_by_label'] = postedByLabel;
+    data['posted_by_label_type'] = postedByLabelType;
+    data['location_names'] = locationNames;
+    if (locations != null) {
+      data['locations'] = locations!.map((v) => v.toJson()).toList();
     }
-    data['start_date_comparison_format'] = this.startDateComparisonFormat;
-    data['start_date1'] = this.startDate1;
-    data['start_date2'] = this.startDate2;
-    data['is_ppo'] = this.isPpo;
-    data['is_ppo_salary_disclosed'] = this.isPpoSalaryDisclosed;
-    data['ppo_salary'] = this.ppoSalary;
-    data['ppo_salary2'] = this.ppoSalary2;
-    data['ppo_label_value'] = this.ppoLabelValue;
-    data['to_show_extra_label'] = this.toShowExtraLabel;
-    data['extra_label_value'] = this.extraLabelValue;
-    data['is_extra_label_black'] = this.isExtraLabelBlack;
-    if (this.campaignNames != null) {
-      data['campaign_names'] = this.campaignNames!.map((v) => v).toList();
+    data['start_date_comparison_format'] = startDateComparisonFormat;
+    data['start_date1'] = startDate1;
+    data['start_date2'] = startDate2;
+    data['is_ppo'] = isPpo;
+    data['is_ppo_salary_disclosed'] = isPpoSalaryDisclosed;
+    data['ppo_salary'] = ppoSalary;
+    data['ppo_salary2'] = ppoSalary2;
+    data['ppo_label_value'] = ppoLabelValue;
+    data['to_show_extra_label'] = toShowExtraLabel;
+    data['extra_label_value'] = extraLabelValue;
+    data['is_extra_label_black'] = isExtraLabelBlack;
+    if (campaignNames != null) {
+      data['campaign_names'] = campaignNames!.map((v) => v).toList();
     }
-    data['campaign_name'] = this.campaignName;
-    data['to_show_in_search'] = this.toShowInSearch;
-    data['campaign_url'] = this.campaignUrl;
-    data['campaign_start_date_time'] = this.campaignStartDateTime;
-    data['campaign_launch_date_time'] = this.campaignLaunchDateTime;
+    data['campaign_name'] = campaignName;
+    data['to_show_in_search'] = toShowInSearch;
+    data['campaign_url'] = campaignUrl;
+    data['campaign_start_date_time'] = campaignStartDateTime;
+    data['campaign_launch_date_time'] = campaignLaunchDateTime;
     data['campaign_early_access_start_date_time'] =
-        this.campaignEarlyAccessStartDateTime;
-    data['campaign_end_date_time'] = this.campaignEndDateTime;
-    if (this.labels != null) {
-      data['labels'] = this.labels!.map((v) => v.toJson()).toList();
+        campaignEarlyAccessStartDateTime;
+    data['campaign_end_date_time'] = campaignEndDateTime;
+    if (labels != null) {
+      data['labels'] = labels!.map((v) => v.toJson()).toList();
     }
-    data['labels_app'] = this.labelsApp;
-    data['labels_app_in_card'] = this.labelsAppInCard;
-    data['is_covid_wfh_selected'] = this.isCovidWfhSelected;
-    data['to_show_card_message'] = this.toShowCardMessage;
-    data['message'] = this.message;
-    data['is_application_capping_enabled'] = this.isApplicationCappingEnabled;
-    data['application_capping_message'] = this.applicationCappingMessage;
-    if (this.overrideMetaDetails != null) {
-      data['override_meta_details'] = this.overrideMetaDetails?.toList();
+    data['labels_app'] = labelsApp;
+    data['labels_app_in_card'] = labelsAppInCard;
+    data['is_covid_wfh_selected'] = isCovidWfhSelected;
+    data['to_show_card_message'] = toShowCardMessage;
+    data['message'] = message;
+    data['is_application_capping_enabled'] = isApplicationCappingEnabled;
+    data['application_capping_message'] = applicationCappingMessage;
+    if (overrideMetaDetails != null) {
+      data['override_meta_details'] = overrideMetaDetails?.toList();
     }
-    data['eligible_for_easy_apply'] = this.eligibleForEasyApply;
-    data['eligible_for_b2b_apply_now'] = this.eligibleForB2bApplyNow;
-    data['to_show_b2b_label'] = this.toShowB2bLabel;
-    data['is_international_job'] = this.isInternationalJob;
-    data['to_show_cover_letter'] = this.toShowCoverLetter;
-    data['office_days'] = this.officeDays;
+    data['eligible_for_easy_apply'] = eligibleForEasyApply;
+    data['eligible_for_b2b_apply_now'] = eligibleForB2bApplyNow;
+    data['to_show_b2b_label'] = toShowB2bLabel;
+    data['is_international_job'] = isInternationalJob;
+    data['to_show_cover_letter'] = toShowCoverLetter;
+    data['office_days'] = officeDays;
     return data;
   }
 }
@@ -363,19 +361,19 @@ class ApplicationStatusMessage {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['to_show'] = this.toShow;
-    data['message'] = this.message;
-    data['type'] = this.type;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['to_show'] = toShow;
+    data['message'] = message;
+    data['type'] = type;
     return data;
   }
 }
 
 class Stipend {
   String? salary;
-  Null? tooltip;
+  Null tooltip;
   int? salaryValue1;
-  Null? salaryValue2;
+  Null salaryValue2;
   String? salaryType;
   String? currency;
   String? scale;
@@ -403,15 +401,15 @@ class Stipend {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['salary'] = this.salary;
-    data['tooltip'] = this.tooltip;
-    data['salaryValue1'] = this.salaryValue1;
-    data['salaryValue2'] = this.salaryValue2;
-    data['salaryType'] = this.salaryType;
-    data['currency'] = this.currency;
-    data['scale'] = this.scale;
-    data['large_stipend_text'] = this.largeStipendText;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['salary'] = salary;
+    data['tooltip'] = tooltip;
+    data['salaryValue1'] = salaryValue1;
+    data['salaryValue2'] = salaryValue2;
+    data['salaryType'] = salaryType;
+    data['currency'] = currency;
+    data['scale'] = scale;
+    data['large_stipend_text'] = largeStipendText;
     return data;
   }
 }
@@ -435,12 +433,12 @@ class Locations {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['string'] = this.string;
-    data['link'] = this.link;
-    data['country'] = this.country;
-    data['region'] = this.region;
-    data['locationName'] = this.locationName;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['string'] = string;
+    data['link'] = link;
+    data['country'] = country;
+    data['region'] = region;
+    data['locationName'] = locationName;
     return data;
   }
 }
@@ -462,11 +460,11 @@ class Labels {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['label_value'] = this.labelValue;
-    data['label_mobile'] = this.labelMobile;
-    data['label_app'] = this.labelApp;
-    data['labels_app_in_card'] = this.labelsAppInCard;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['label_value'] = labelValue;
+    data['label_mobile'] = labelMobile;
+    data['label_app'] = labelApp;
+    data['labels_app_in_card'] = labelsAppInCard;
     return data;
   }
 }

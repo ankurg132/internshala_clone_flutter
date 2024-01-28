@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:internshala_clone/models/get_internship.dart';
 import 'package:internshala_clone/providers/internship_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -22,34 +21,33 @@ class _MyHomePageState extends State<MyHomePage> {
     }
     return Scaffold(
       appBar: AppBar(
-        forceMaterialTransparency: false,
-        automaticallyImplyLeading: false,
+        surfaceTintColor: Colors.transparent,
         backgroundColor: Colors.transparent,
-        title: Text('Internships'),
+        title: const Text('Internships'),
         leading: Builder(
           builder: (context) => IconButton(
-            icon: Icon(Icons.menu),
+            icon: const Icon(Icons.menu),
             onPressed: () => Scaffold.of(context).openDrawer(),
           ),
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             onPressed: () {},
           ),
           IconButton(
-            icon: Icon(Icons.bookmark_border),
+            icon: const Icon(Icons.bookmark_border),
             onPressed: () {},
           ),
           IconButton(
-            icon: Icon(Icons.chat_bubble_outline),
+            icon: const Icon(Icons.chat_bubble_outline),
             onPressed: () {},
           ),
         ],
       ),
-      drawer: Drawer(),
+      drawer: showDrawer(),
       body: provider.isLoading
-          ? CircularProgressIndicator()
+          ? Center(child: const CircularProgressIndicator())
           : Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -58,15 +56,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   FittedBox(
                     child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
-                            side: BorderSide(width: 1.0, color: Colors.blue),
+                            side: const BorderSide(
+                                width: 1.0, color: Colors.blue),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(32))),
                         onPressed: () {},
                         child: Row(
                           children: [
-                            Icon(Icons.filter_alt, color: Colors.blue),
+                            const Icon(Icons.filter_alt, color: Colors.blue),
                             Boxes.mediumWidthBox,
-                            Text(
+                            const Text(
                               'Filter',
                               style: TextStyle(color: Colors.blue),
                             )
@@ -78,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: const TextStyle(color: Colors.black87),
                   ),
                   Boxes.mediumHeightBox,
-                  Divider(
+                  const Divider(
                     height: 0,
                   ),
                   Expanded(
@@ -98,18 +97,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                       item.isActive ?? false
                                           ? FittedBox(
                                               child: Container(
-                                              padding: EdgeInsets.symmetric(
-                                                  vertical: 2, horizontal: 8),
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 2,
+                                                      horizontal: 8),
                                               decoration: BoxDecoration(
                                                   border: Border.all(
                                                       color: Colors.grey),
                                                   borderRadius:
                                                       BorderRadius.circular(8)),
-                                              child: Row(
+                                              child: const Row(
                                                 children: [
                                                   Icon(
                                                     Icons.auto_graph_rounded,
                                                     color: Colors.blue,
+                                                    size: 20,
                                                   ),
                                                   SizedBox(
                                                     width: 5,
@@ -119,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                             ))
                                           : Container(),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 10,
                                       ),
                                       Row(
@@ -133,15 +135,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                               children: [
                                                 Text(
                                                   item.title ?? '',
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       fontWeight:
-                                                          FontWeight.bold),
+                                                          FontWeight.bold,
+                                                      fontSize: 16),
                                                   overflow:
                                                       TextOverflow.ellipsis,
                                                 ),
                                                 Text(
                                                   item.companyName ?? '',
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       color: Colors.grey),
                                                   overflow:
                                                       TextOverflow.ellipsis,
@@ -157,22 +160,23 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ],
                                       ),
                                       item.workFromHome ?? false
-                                          ? IconTextData(
-                                              icon: Icons.home,
+                                          ? const IconTextData(
+                                              icon: Icons.home_outlined,
                                               text: 'Work from Home')
                                           : IconTextData(
-                                              icon: Icons.work,
+                                              icon: Icons.work_outline_outlined,
                                               text: item.locations?[0]
                                                       .locationName ??
                                                   ''),
                                       Wrap(
                                         children: [
                                           IconTextData(
-                                              icon: Icons.play_arrow,
+                                              icon: Icons.play_arrow_outlined,
                                               text: item.startDate ?? ''),
                                           Boxes.largeWidthBox,
                                           IconTextData(
-                                              icon: Icons.calendar_month,
+                                              icon:
+                                                  Icons.calendar_month_outlined,
                                               text: item.duration ?? ''),
                                         ],
                                       ),
@@ -181,16 +185,18 @@ class _MyHomePageState extends State<MyHomePage> {
                                             text:
                                                 "Internship ${item.ppoLabelValue}"),
                                         if (item.partTime ?? false)
-                                          FlairText(text: "Part Time"),
+                                          const FlairText(text: "Part Time"),
                                       ]),
                                       FlairTextWithIcon(
                                           icon: Icons.replay_outlined,
                                           text: item.postedOn ?? ''),
-                                      Divider(),
+                                      const Divider(
+                                        thickness: 0.5,
+                                      ),
                                       Row(
                                         children: [
-                                          Spacer(),
-                                          Text(
+                                          const Spacer(),
+                                          const Text(
                                             'View Details',
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -204,11 +210,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8))),
-                                            child: Text(
+                                            child: const Text(
                                               'Apply Now',
                                               style: TextStyle(
                                                   color: Colors.white,
-                                                  fontWeight: FontWeight.w500),
+                                                  fontWeight: FontWeight.bold),
                                             ),
                                             onPressed: () {},
                                           ),
@@ -223,6 +229,101 @@ class _MyHomePageState extends State<MyHomePage> {
             ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+  Drawer showDrawer() {
+    return Drawer(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Boxes.largeHeightBox,
+                const Text(
+                  'Ankur Gupta',
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                ),
+                const Text('ankurg052@gmail.com'),
+                Boxes.mediumHeightBox,
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CircleAvatarWidget(text: 'Preferences'),
+                    CircleAvatarWidget(text: 'Resume'),
+                    CircleAvatarWidget(text: 'Applications'),
+                  ],
+                ),
+                Boxes.mediumHeightBox,
+                const Divider(
+                  thickness: 0.5,
+                ),
+                Boxes.mediumHeightBox,
+                const Text('EXPLORE'),
+                const ListTileIconText(icon: Icons.rocket, text: 'Internships'),
+                const ListTileIconText(icon: Icons.work, text: 'Jobs'),
+                const ListTileIconText(
+                    icon: Icons.screen_lock_landscape, text: 'Courses'),
+                const ListTileIconText(
+                    icon: Icons.work_outline,
+                    text: 'Placement Guarantee Courses'),
+                const ListTileIconText(
+                    icon: Icons.place_outlined, text: 'Study Abroad'),
+                Boxes.mediumHeightBox,
+                const Text('HELP & SUPPORT'),
+                const ListTile(
+                  leading: Icon(Icons.help),
+                  title: Text('Help Center'),
+                ),
+                const ListTile(
+                  leading: Icon(Icons.chat_bubble_outline),
+                  title: Text('Report a complaint'),
+                ),
+                const ListTile(
+                  leading: Icon(Icons.add),
+                  title: Text('More'),
+                ),
+              ]),
+        ),
+      ),
+    );
+  }
+}
+
+class ListTileIconText extends StatelessWidget {
+  const ListTileIconText({super.key, required this.icon, required this.text});
+  final IconData icon;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(text),
+    );
+  }
+}
+
+class CircleAvatarWidget extends StatelessWidget {
+  const CircleAvatarWidget({super.key, required this.text});
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const CircleAvatar(
+          backgroundColor: Colors.blue,
+          child: Icon(
+            Icons.filter,
+            color: Colors.white,
+          ),
+        ),
+        Boxes.smallHeightBox,
+        Text(text)
+      ],
+    );
+  }
 }
 
 class FlairText extends StatelessWidget {
@@ -233,7 +334,7 @@ class FlairText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 2),
+      padding: const EdgeInsets.symmetric(vertical: 2),
       child: FittedBox(
         child: Container(
           decoration: BoxDecoration(
@@ -242,7 +343,7 @@ class FlairText extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               text,
-              style: TextStyle(fontSize: 12),
+              style: const TextStyle(fontSize: 12),
             ),
           ),
         ),
@@ -260,7 +361,7 @@ class FlairTextWithIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         vertical: 2,
       ),
       child: FittedBox(
@@ -277,7 +378,7 @@ class FlairTextWithIcon extends StatelessWidget {
               Boxes.mediumWidthBox,
               Text(
                 text,
-                style: TextStyle(fontSize: 12),
+                style: const TextStyle(fontSize: 12),
               )
             ]),
           ),
@@ -308,10 +409,10 @@ class IconTextData extends StatelessWidget {
               icon,
               size: 20,
             ),
-            SizedBox(
+            const SizedBox(
               width: 5,
             ),
-            Text(text, style: TextStyle(fontSize: 12))
+            Text(text, style: const TextStyle(fontSize: 12))
           ],
         ),
       ),
